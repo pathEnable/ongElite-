@@ -9,19 +9,19 @@ export default function Home() {
     {
       title: "Éducation pour Tous",
       description: "Construction d'écoles et fourniture de matériel scolaire pour les enfants défavorisés.",
-      imageUrl: "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=2604&auto=format&fit=crop", // Placeholder image
+      imageUrl: "/projects/education.png",
       link: "/projects",
     },
     {
       title: "Eau Potable & Santé",
       description: "Installation de puits et campagnes de vaccination dans les zones rurales.",
-      imageUrl: "https://images.unsplash.com/photo-1574482620826-406ce75da93c?q=80&w=2669&auto=format&fit=crop", // Placeholder image
+      imageUrl: "/projects/water.png",
       link: "/projects",
     },
     {
       title: "Protection de l'Environnement",
       description: "Programmes de reboisement et sensibilisation au changement climatique.",
-      imageUrl: "https://images.unsplash.com/photo-1542601906990-24d4c16419d0?q=80&w=2574&auto=format&fit=crop", // Placeholder image
+      imageUrl: "/projects/environment.png",
       link: "/projects",
     },
   ];
