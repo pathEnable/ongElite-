@@ -1,0 +1,55 @@
+# Configuration de la Base de Données (Neon) et UploadThing
+
+J'ai configuré avec succès la base de données Neon PostgreSQL et le système de stockage de fichiers UploadThing pour le projet `ong-espoir`.
+
+## Ce qui a été fait
+
+### 1. Base de Données (Neon + Drizzle ORM)
+- **Installation** : Configuration de Drizzle ORM et du driver `@neondatabase/serverless`.
+- **Schéma** : Création des tables suivantes dans [src/db/schema.ts](file:///c:/Users/mitch/Desktop/ONG/ong-espoir/src/db/schema.ts) :
+  - `projects` (Projets humanitaires)
+  - `donations` (Dons)
+  - `volunteers` (Bénévoles)
+  - `contact_messages` (Messages de contact)
+- **Client** : Utilitaire de connexion disponible dans [src/db/index.ts](file:///c:/Users/mitch/Desktop/ONG/ong-espoir/src/db/index.ts).
+- **Migration** : Le schéma a été poussé vers votre base de données Neon.
+
+### 2. Stockage de Fichiers (UploadThing)
+- **Installation** : Configuration de `uploadthing` et `@uploadthing/react`.
+- **API** : Création des routes API dans `src/app/api/uploadthing/`.
+- **Configuration** : Mise en place du [core.ts](file:///c:/Users/mitch/Desktop/ONG/ong-espoir/src/app/api/uploadthing/core.ts) pour définir les types de fichiers autorisés.
+
+### 3. Vérification
+- Un script de test a été exécuté pour valider la connexion à la base de données.
+- Une ligne de test a été insérée dans la table `projects` ("Test Project") pour confirmer que l'écriture fonctionne.
+
+## Comment utiliser
+
+### Interagir avec la base de données
+Vous pouvez importer `db` depuis `@/db` et vos tables depuis `@/db/schema`.
+
+```typescript
+import { db } from "@/db";
+import { projects } from "@/db/schema";
+
+// Récupérer tous les projets
+const allProjects = await db.select().from(projects);
+```
+
+### Ajouter des fichiers (Frontend)
+Utilisez les composants UploadThing (à implémenter dans vos formulaires via `generateUploadButton` ou `generateUploadDropzone`).
+
+```typescript
+import { UploadButton } from "@/utils/uploadthing";
+
+<UploadButton
+  endpoint="imageUploader"
+  onClientUploadComplete={(res) => {
+    console.log("Files: ", res);
+  }}
+/>
+```
+
+## Prochaines étapes
+- Intégrer la base de données dans vos pages existantes (ex: afficher les projets dynamiquement).
+- Créer les formulaires pour les dons et bénévoles connectés à la base.

@@ -68,13 +68,22 @@ export function Footer() {
                         </p>
                         <form
                             className="flex flex-col gap-2 sm:flex-row sm:items-center"
-                            onSubmit={(event) => {
-                                event.preventDefault()
-                                alert("Merci pour votre inscription à la newsletter !")
+                            action={async (formData) => {
+                                const { subscribeToNewsletter } = await import("@/app/actions/newsletter");
+                                const { toast } = await import("sonner");
+                                const result = await subscribeToNewsletter(formData);
+                                if (result.success) {
+                                    toast.success(result.message);
+                                    (document.getElementById('newsletter-form') as HTMLFormElement)?.reset();
+                                } else {
+                                    toast.error(result.message);
+                                }
                             }}
+                            id="newsletter-form"
                         >
                             <Input
                                 type="email"
+                                name="email"
                                 required
                                 placeholder="Votre adresse email"
                                 className="sm:max-w-xs"

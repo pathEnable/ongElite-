@@ -10,19 +10,19 @@ export default function Home() {
       title: "Éducation pour Tous",
       description: "Construction d'écoles et fourniture de matériel scolaire pour les enfants défavorisés.",
       imageUrl: "/projects/education.png",
-      link: "/projects",
+      slug: "education-pour-tous",
     },
     {
       title: "Eau Potable & Santé",
       description: "Installation de puits et campagnes de vaccination dans les zones rurales.",
       imageUrl: "/projects/water.png",
-      link: "/projects",
+      slug: "eau-potable-sante",
     },
     {
       title: "Protection de l'Environnement",
       description: "Programmes de reboisement et sensibilisation au changement climatique.",
       imageUrl: "/projects/environment.png",
-      link: "/projects",
+      slug: "protection-environnement",
     },
   ];
 

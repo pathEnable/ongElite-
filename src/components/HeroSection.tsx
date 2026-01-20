@@ -7,9 +7,9 @@ import { Users, Globe2, HeartHandshake } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 const heroImages = [
-    "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=2604&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?q=80&w=2670&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2670&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1200&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?q=80&w=1200&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=1200&auto=format&fit=crop",
 ]
 
 export function HeroSection() {
@@ -35,6 +35,7 @@ export function HeroSection() {
                         alt=""
                         fill
                         priority={index === 0}
+                        unoptimized
                         className={`object-cover transition-opacity duration-1000 ease-in-out ${index === currentIndex ? "opacity-100" : "opacity-0"
                             }`}
                     />

@@ -8,12 +8,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Mail, MapPin, Phone } from "lucide-react";
 
 export default function ContactPage() {
-    async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-        event.preventDefault();
-        // Ici vous connecteriez un service d'envoi d'email ou une API backend
-        alert("Merci pour votre message ! Nous vous répondrons bientôt.");
-    }
-
     return (
         <div className="container py-12 md:py-24 px-4 md:px-6">
             <div className="text-center mb-16">
@@ -75,29 +69,53 @@ export default function ContactPage() {
                         <CardDescription>Remplissez le formulaire ci-dessous.</CardDescription>
                     </CardHeader>
                     <CardContent>
-                        <form onSubmit={handleSubmit} className="space-y-6">
+                        <form
+                            action={async (formData) => {
+                                const { sendContactMessage } = await import("@/app/actions/contact");
+                                const { toast } = await import("sonner");
+
+                                // Merge firstName and lastName into 'name' for the action
+                                const name = `${formData.get('firstName')} ${formData.get('lastName')}`.trim();
+                                const newFormData = new FormData();
+                                newFormData.append('name', name);
+                                newFormData.append('email', formData.get('email') as string);
+                                newFormData.append('subject', formData.get('subject') as string);
+                                newFormData.append('message', formData.get('message') as string);
+
+                                const result = await sendContactMessage(newFormData);
+                                if (result.success) {
+                                    toast.success(result.message);
+                                    (document.getElementById('contact-form') as HTMLFormElement)?.reset();
+                                } else {
+                                    toast.error(result.message);
+                                }
+                            }}
+                            id="contact-form"
+                            className="space-y-6"
+                        >
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div className="space-y-2">
                                     <Label htmlFor="firstName">Prénom</Label>
-                                    <Input id="firstName" placeholder="Jean" required />
+                                    <Input id="firstName" name="firstName" placeholder="Jean" required />
                                 </div>
                                 <div className="space-y-2">
                                     <Label htmlFor="lastName">Nom</Label>
-                                    <Input id="lastName" placeholder="Dupont" required />
+                                    <Input id="lastName" name="lastName" placeholder="Dupont" required />
                                 </div>
                             </div>
                             <div className="space-y-2">
                                 <Label htmlFor="email">Email</Label>
-                                <Input id="email" type="email" placeholder="jean.dupont@exemple.com" required />
+                                <Input id="email" name="email" type="email" placeholder="jean.dupont@exemple.com" required />
                             </div>
                             <div className="space-y-2">
                                 <Label htmlFor="subject">Sujet</Label>
-                                <Input id="subject" placeholder="Renseignement..." required />
+                                <Input id="subject" name="subject" placeholder="Renseignement..." required />
                             </div>
                             <div className="space-y-2">
                                 <Label htmlFor="message">Message</Label>
                                 <Textarea
                                     id="message"
+                                    name="message"
                                     placeholder="Votre message ici..."
                                     className="min-h-[150px]"
                                     required

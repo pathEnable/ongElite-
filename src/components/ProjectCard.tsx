@@ -14,10 +14,10 @@ interface ProjectCardProps {
     title: string
     description: string
     imageUrl: string
-    link: string
+    slug: string
 }
 
-export function ProjectCard({ title, description, imageUrl, link }: ProjectCardProps) {
+export function ProjectCard({ title, description, imageUrl, slug }: ProjectCardProps) {
     return (
         <Card className="flex flex-col overflow-hidden">
             <div className="relative h-48 w-full">
@@ -38,7 +38,7 @@ export function ProjectCard({ title, description, imageUrl, link }: ProjectCardP
             </CardContent>
             <CardFooter>
                 <Button asChild className="w-full">
-                    <Link href={link}>En savoir plus</Link>
+                    <Link href={`/projects/${slug}`}>En savoir plus</Link>
                 </Button>
             </CardFooter>
         </Card>
