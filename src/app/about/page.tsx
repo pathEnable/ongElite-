@@ -10,7 +10,7 @@ export default function AboutPage() {
                 <div>
                     <h1 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl mb-6">Notre Histoire & Mission</h1>
                     <p className="text-lg text-muted-foreground mb-4">
-                        Les Élites de Demain est une ONG constituée de jeunes dynamiques qui souhaitent mettre en œuvre leur dynamisme au service de la communauté. La jeunesse est d'une importance capitale dans le processus de développement d'un pays.
+                        "ONG Brand" est une ONG constituée de jeunes dynamiques qui souhaitent mettre en œuvre leur dynamisme au service de la communauté. La jeunesse est d'une importance capitale dans le processus de développement d'un pays.
                     </p>
                     <p className="text-lg text-muted-foreground mb-4">
                         Notre objectif est de contribuer au développement de l'homme et de son cadre de vie à travers nos interventions dans les domaines qui riment avec nos objectifs.
