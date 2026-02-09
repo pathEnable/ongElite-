@@ -46,7 +46,7 @@ export function HeroSection() {
             <div className="container px-4 md:px-6 relative z-10 flex flex-col items-center">
                 <div className="w-full max-w-4xl rounded-3xl px-6 py-8 md:px-10 md:py-10 flex flex-col items-center gap-6">
                     <p className="inline-flex items-center rounded-full bg-white/10 px-5 py-1.5 text-[10px] md:text-xs font-semibold uppercase tracking-[0.3em] text-white/80">
-                        ONG Les Élites de Demain
+                        "ONG Brand"
                     </p>
                     <h1 className="text-[2.3rem] sm:text-5xl md:text-6xl lg:text-[3.8rem] xl:text-[4.1rem] font-extrabold leading-[1.1] tracking-tight max-w-4xl mx-auto text-white">
                         Le dynamisme d'une
