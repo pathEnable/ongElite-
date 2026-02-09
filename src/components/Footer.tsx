@@ -11,7 +11,7 @@ export function Footer() {
             <div className="container px-4 py-8 md:px-6 md:py-12">
                 <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
                     <div className="space-y-4">
-                        <h3 className="text-lg font-bold">Les Élites de Demain</h3>
+                        <h3 className="text-lg font-bold">ONG Brand</h3>
                         <p className="text-sm text-muted-foreground">
                             Le dynamisme d'une jeunesse engagée. Contribuer au développement de l'homme et de son cadre de vie.
                         </p>
@@ -95,7 +95,7 @@ export function Footer() {
                     </div>
                 </div>
                 <div className="mt-8 border-t pt-8 text-center text-sm text-muted-foreground">
-                    <p>&copy; {new Date().getFullYear()} Les Élites de Demain. Tous droits réservés.</p>
+                    <p>&copy; {new Date().getFullYear()} Emini. Tous droits réservés.</p>
                 </div>
             </div>
         </footer>
