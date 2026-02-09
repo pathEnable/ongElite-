@@ -33,7 +33,7 @@ export function Navbar() {
             <div className="container flex h-auto py-4 items-center justify-between px-4 md:px-6">
                 <div className="flex items-center gap-2">
                     <Link href="/" className="flex items-center space-x-2">
-                        <span className="text-xl font-bold tracking-tight">Les Élites de Demain</span>
+                        <span className="text-xl font-bold tracking-tight">"ONG Brand"</span>
                     </Link>
                 </div>
 
